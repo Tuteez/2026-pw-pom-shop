@@ -1,0 +1,9 @@
+pages/
+    home.page.js
+    login.page.js
+    myAccount.page.js
+    etc...
+tests/
+    login.spec.js
+    register.spec.js
+    etc...

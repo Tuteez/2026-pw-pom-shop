@@ -4,7 +4,7 @@ export class LoginPage {
     this.email = page.locator('#input-email');
     this.password = page.locator('#input-password');
     this.loginBtn = page.locator('input[value="Login"]');
-    this.noMatchForEmailError = page.locator('for.alert-danger');
+    this.noMatchForEmailError = page.locator('.alert-danger');
   }
 
   async login(email, password) {

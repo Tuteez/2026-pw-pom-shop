@@ -9,6 +9,7 @@ export class HomePage {
     this.currencyOption = (desiredCurrency) => page.locator(`button[name="${desiredCurrency}"]`);
     this.searchInput = page.locator('#search input');
     this.searchButton = page.locator('#search button');
+    this.productComparisonLink = page.locator(".alert-success a[href*='/compare']");
   }
 
   async open() {

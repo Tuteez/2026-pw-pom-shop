@@ -5,7 +5,7 @@ export class ProductCardPage {
     this.price = page.locator('.price');
     this.title = page.locator(".product-layout h4");
     this.description = page.locator(".product-layout p").first();
-    // TODO: reuse .product-layout
+    this.compareButton = page.locator("[data-original-title='Compare this Product']");
   }
 
   // lengviau skaitoma

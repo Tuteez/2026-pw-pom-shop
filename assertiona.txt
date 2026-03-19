@@ -1,19 +1,4 @@
-await expect(locator).toBeFocused()	Element is focused
-await expect(locator).toBeHidden()	Element is not visible
-await expect(locator).toBeInViewport()	Element intersects viewport
-await expect(locator).toContainClass()	Element has specified CSS classes
-await expect(locator).toHaveAccessibleDescription()	Element has a matching accessible description
-await expect(locator).toHaveAccessibleName()	Element has a matching accessible name
-await expect(locator).toHaveAttribute()	Element has a DOM attribute
-await expect(locator).toHaveClass()	Element has specified CSS class property
-await expect(locator).toHaveCount()	List has exact number of children
-await expect(locator).toHaveCSS()	Element has CSS property
-await expect(locator).toHaveId()	Element has an ID
-await expect(locator).toHaveJSProperty()	Element has a JavaScript property
-await expect(locator).toHaveRole()	Element has a specific ARIA role
 await expect(locator).toHaveScreenshot()	Element has a screenshot
-await expect(locator).toHaveValue()	Input has a value
-await expect(locator).toHaveValues()	Select has options selected
 await expect(locator).toMatchAriaSnapshot()	Element matches the Aria snapshot
 await expect(page).toHaveScreenshot()	Page has a screenshot
 await expect(response).toBeOK()	Response has an OK status

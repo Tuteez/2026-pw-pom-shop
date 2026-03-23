@@ -217,11 +217,44 @@ test("toMatchAriaSnapshot", async ({ page }) => {
     // jei snapshot'as jau yra sukurtas, tai tikrins ar elementas atitinka snapshot'ą, jei snapshot'as dar nėra sukurtas, tai jį sukurs su esamomis elemento ARIA savybėmis.
 });
 
-// toHaveScreenshot - tikrina ar elementas atitinka tam tikra screenshot'ą, t.y. ar elementas atrodo taip pat kaip ir screenshot'e. Naudojama tikrinti ar elementai atrodo taip kaip tikimasi, ir ar jie nepasikeite nuo paskutinio karto kai buvo sukurtas screenshot'as. Galima naudoti visam puslapiui arba konkretiems elementams.
-test("toHaveScreenshot", async ({ page }) => {
+// locator.toHaveScreenshot - tikrina ar elementas atitinka tam tikra screenshot'ą, t.y. ar elementas atrodo taip pat kaip ir screenshot'e. Naudojama tikrinti ar elementai atrodo taip kaip tikimasi, ir ar jie nepasikeite nuo paskutinio karto kai buvo sukurtas screenshot'as. Galima naudoti visam puslapiui arba konkretiems elementams.
+test("locator.toHaveScreenshot", async ({ page }) => {
     await page.goto("/index.php?route=account/register");
     const firstNameInput = page.locator("#input-firstname");
 
     await expect(firstNameInput).toHaveScreenshot("firstNameInput.png");
     // jei screenshot'as jau yra sukurtas, tai tikrins ar elementas atitinka screenshot'ą, jei screenshot'as dar nėra sukurtas, tai jį sukurs su esama elemento vizualine išvaizda.
 });
+
+// page.toHaveScreenshot - tikrina ar puslapis atitinka tam tikra screenshot'ą, t.y. ar puslapis atrodo taip pat kaip ir screenshot'e. Naudojama tikrinti ar puslapis atrodo taip kaip tikimasi, ir ar jis nepasikeite nuo paskutinio karto kai buvo sukurtas screenshot'as.
+test("page.toHaveScreenshot", async ({ page }) => {
+    await page.goto("");
+
+    await expect(page).toHaveScreenshot("homePage.png");
+    // jei screenshot'as jau yra sukurtas, tai tikrins ar puslapis atitinka screenshot'ą, jei screenshot'as dar nėra sukurtas, tai jį sukurs su esama puslapio vizualine išvaizda.
+});
+
+
+
+
+// (response).toBeOK()	Response has an OK status
+test("response.toBeOK", async ({ page }) => {
+    //     const request = await request.newContext({
+    //   ignoreHTTPSerrors: true
+    // });
+    const response = await page.request.get("https://jsonplaceholder.typicode.com/posts/1");
+    await expect(response).toBeOK();
+});
+
+// check response body
+test("response body", async ({ page }) => {
+    const response = await page.request.get("https://jsonplaceholder.typicode.com/posts/1");
+    const responseBody = await response.json();
+    expect(responseBody).toEqual({
+        userId: 1,
+        id: 1,
+        title: "unt aut facere repellat provident occaecati excepturi optio reprehenderit",
+        body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+    });
+}
+);

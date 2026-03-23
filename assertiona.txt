@@ -1,4 +1,0 @@
-await expect(locator).toHaveScreenshot()	Element has a screenshot
-await expect(locator).toMatchAriaSnapshot()	Element matches the Aria snapshot
-await expect(page).toHaveScreenshot()	Page has a screenshot
-await expect(response).toBeOK()	Response has an OK status
